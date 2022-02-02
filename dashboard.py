@@ -218,7 +218,10 @@ def load_stacked_area_chart(df, selected_country="ESP"):
     ).mark_area().encode(
         alt.X(field='Year', type='temporal'),
         alt.Y(field='Electricity (TWh)', type='quantitative', stack='zero'),
-        alt.Color('EnergySources:N')
+        alt.Color('EnergySources:N'),
+        tooltip= [
+            alt.Tooltip(field="Electricity (TWh)" , title="Electricity generated (TWh)", type="quantitative"),
+        ],
     ).properties(width=500, height=300)
 
     st.altair_chart(stacked)
