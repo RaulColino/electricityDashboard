@@ -81,10 +81,10 @@ def loadScatterPlot(df, energy_src_selected, year_selected, countries_selection)
         color="Entity",
         size="Population (historical estimates)",
         tooltip= [
-            alt.Tooltip(field="Entity", title="Country"),
-            alt.Tooltip(field="GDP", title="GDP"),
-            alt.Tooltip(field="Population (historical estimates)", title="Population (historical estimates)"),
-            alt.Tooltip(field=energy_src_selected, title="Electricity generated from {} (TWh)".format(energy_src_selected)),
+            alt.Tooltip(field="Entity", title="Country", type="nominal"),
+            alt.Tooltip(field="GDP", title="GDP", type="nominal"),
+            alt.Tooltip(field="Population (historical estimates)", title="Population (historical estimates)", type="quantitative"),
+            alt.Tooltip(field=energy_src_selected, title="Electricity generated from {} (TWh)".format(energy_src_selected), type="quantitative"),
         ],
     ).interactive(
     ).properties(
@@ -102,8 +102,8 @@ def load_ranking_elec(df, choice_selected, countries_selection, year_selected):
         y = alt.X("Entity", title="Country", type="nominal", sort=alt.EncodingSortField(field=choice_selected, order='descending')),
         x = alt.Y(choice_selected, title="Electricity generated from {} (TWh)".format(choice_selected),type="quantitative"),
         tooltip= [
-            alt.Tooltip(field="Entity", title="Country"),
-            alt.Tooltip(field=choice_selected, title="Electricity generated from {} (TWh)".format(energy_src_selected)),
+            alt.Tooltip(field="Entity", title="Country", type="nominal"),
+            alt.Tooltip(field=choice_selected, title="Electricity generated from {} (TWh)".format(energy_src_selected), type="quantitative"),
         ],
     ).configure_mark(
         opacity=0.7,
@@ -119,8 +119,8 @@ def load_ranking_access(df, countries_selection, year_selected):
         y = alt.X("Entity", title="Country", type="nominal", sort=alt.EncodingSortField(field="Access to electricity (% of population)", order='descending')),
         x = alt.Y("Access to electricity (% of population)", type="quantitative"),
         tooltip= [
-            alt.Tooltip(field="Entity", title="Country"),
-            alt.Tooltip(field="Access to electricity (% of population)" , title="access"),
+            alt.Tooltip(field="Entity", title="Country", type="nominal"),
+            alt.Tooltip(field="Access to electricity (% of population)" , title="access", type="quantitative"),
         ],
     ).configure_mark(
         opacity=0.7,
