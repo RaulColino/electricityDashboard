@@ -1,3 +1,3 @@
 # electricityDashboard
 
-A dashboard with different charts, maps and other graphics. Built with Python and Streamlit.
+A dashboard to get insights related with electricity consumption, production, energy sources, etc. It has different charts, maps and other graphics. Built with Python and Streamlit.
